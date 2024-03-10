@@ -1,0 +1,28 @@
+[
+  {
+    "numeroPedido": "001",
+    "productos": [
+      { "nombre": "Nike Air Max 270", "cantidad": 2 },
+      { "nombre": "Nike React Element 55", "cantidad": 1 }
+    ],
+    "totalPago": 349.97,
+    "estatusEnvio": "En proceso"
+  },
+  {
+    "numeroPedido": "002",
+    "productos": [
+      { "nombre": "Nike Air Force 1", "cantidad": 1 },
+      { "nombre": "Nike Zoom Pegasus 37", "cantidad": 1 }
+    ],
+    "totalPago": 189.98,
+    "estatusEnvio": "En camino"
+  },
+  {
+    "numeroPedido": "003",
+    "productos": [
+      { "nombre": "Nike Free RN 5.0", "cantidad": 3 }
+    ],
+    "totalPago": 209.97,
+    "estatusEnvio": "Entregado"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Nike Air Max 270",
+    "talla": "US 10",
+    "precio": 129.99,
+    "imagen": "https://example.com/air_max_270.jpg"
+  },
+  {
+    "nombre": "Nike React Element 55",
+    "talla": "US 9",
+    "precio": 89.99,
+    "imagen": "https://example.com/react_element_55.jpg"
+  },
+  {
+    "nombre": "Nike Air Force 1",
+    "talla": "US 8",
+    "precio": 79.99,
+    "imagen": "https://example.com/air_force_1.jpg"
+  },
+  {
+    "nombre": "Nike Zoom Pegasus 37",
+    "talla": "US 11",
+    "precio": 109.99,
+    "imagen": "https://example.com/zoom_pegasus_37.jpg"
+  },
+  {
+    "nombre": "Nike Free RN 5.0",
+    "talla": "US 7",
+    "precio": 69.99,
+    "imagen": "https://example.com/free_rn_5.jpg"
+  }
+]
