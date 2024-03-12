@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Modulo3 from './Modulo3.vue';
+import Modulo3 from './modulo3.vue';
 
 export default {
   name: 'Modulo2',

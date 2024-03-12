@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'Modulo3',
+  name: 'modulo3',
   props: {
     product: {
       type: Object,

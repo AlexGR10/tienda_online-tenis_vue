@@ -17,10 +17,10 @@
         <ul class="navbar-nav mr-auto">
           <!-- Botones de Categoría -->
           <li class="nav-item">
-            <router-link to="/modulo8" class="btn btn-link nav-link">Hombres</router-link>
+            <router-link to="/modulo1" class="btn btn-link nav-link">Hombres</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/modulo9" class="btn btn-link nav-link">Mujeres</router-link>
+            <router-link to="/modulo1" class="btn btn-link nav-link">Mujeres</router-link>
           </li>
         </ul>
         <!-- Barra de Búsqueda -->
@@ -29,11 +29,11 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
         </form>
         <!-- Carrito de Compras -->
-        <router-link to="/modulo7" class="btn btn-primary mx-2">Carrito (0)</router-link> <!-- Aquí deberías manejar dinámicamente el número de productos en el carrito -->
+        <router-link to="/modulo8" class="btn btn-primary mx-2">Carrito (0)</router-link> <!-- Aquí deberías manejar dinámicamente el número de productos en el carrito -->
         <!-- Sesión -->
         <router-link to="/modulo5" class="btn btn-primary">Iniciar Sesión</router-link>
         <!-- Perfil de Usuario -->
-        <router-link to="/modulo6" class="btn btn-primary mx-2">Perfil</router-link>
+        <router-link to="/modulo12" class="btn btn-primary mx-2">Perfil</router-link>
       </div>
     </div>
   </nav>
