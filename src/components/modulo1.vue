@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container justify-content-center">
       <router-link to="/modulo2" class="navbar-brand">Kike</router-link>
       <button
@@ -26,22 +26,31 @@
         <!-- Barra de Búsqueda -->
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
         </form>
         <!-- Carrito de Compras -->
-        <router-link to="/modulo8" class="btn btn-primary mx-2">Carrito (0)</router-link> <!-- Aquí deberías manejar dinámicamente el número de productos en el carrito -->
+        <router-link to="/modulo8" class="btn btn-primary mx-2 bg-dark">Carrito ({{ carrito.length }})</router-link>
         <!-- Sesión -->
-        <router-link to="/modulo5" class="btn btn-primary">Iniciar Sesión</router-link>
+        <router-link to="/modulo5" class="btn btn-primary bg-dark">Iniciar Sesión</router-link>
         <!-- Perfil de Usuario -->
-        <router-link to="/modulo12" class="btn btn-primary mx-2">Perfil</router-link>
+        <router-link to="/modulo12" class="btn btn-primary mx-2 bg-dark">Perfil</router-link>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import carritoData from '/src/assets/pedidos.json';
+
 export default {
   name: 'Modulo1',
+  data() {
+    return {
+      carrito: []
+    };
+  },
+  created() {
+    this.carrito = carritoData;
+  }
 };
 </script>
 
@@ -76,5 +85,12 @@ export default {
 
 .btn {
   border-radius: 0;
+}
+
+/* Estilos para los botones con fondo negro y letras blancas */
+.btn-primary {
+  background-color: black;
+  color: white;
+  border: none; /* Quita el borde */
 }
 </style>
