@@ -45,7 +45,7 @@
     methods: {
       async cargarProductos() {
         try {
-          const response = await axios.get('/src/assets/pedidos.json');
+          const response = await axios.get('/src/assets/carrito.json');
           this.productosEnCarrito = response.data;
           this.actualizarTotal();
         } catch (error) {

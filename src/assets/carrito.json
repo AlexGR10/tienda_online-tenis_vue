@@ -1,28 +1,38 @@
 [
   {
-    "numeroPedido": "001",
-    "productos": [
-      { "nombre": "Nike Air Max 270", "cantidad": 2 },
-      { "nombre": "Nike React Element 55", "cantidad": 1 }
-    ],
-    "totalPago": 349.97,
-    "estatusEnvio": "En proceso"
+    "id": 1,
+    "nombre": "Nike Air Max 270",
+    "categoria": "hombre",
+    "talla": "US 10",
+    "precio": 129.99,
+    "imagen": "https://example.com/air_max_270.jpg",
+    "oferta": "no",
+    "color": "Rojo",
+    "ventas": 5,
+    "estado": "existencia"
   },
   {
-    "numeroPedido": "002",
-    "productos": [
-      { "nombre": "Nike Air Force 1", "cantidad": 1 },
-      { "nombre": "Nike Zoom Pegasus 37", "cantidad": 1 }
-    ],
-    "totalPago": 189.98,
-    "estatusEnvio": "En camino"
+    "id": 2,
+    "nombre": "Adidas Ultraboost 21",
+    "categoria": "hombre",
+    "talla": "US 11",
+    "precio": 179.99,
+    "imagen": "https://example.com/ultraboost_21.jpg",
+    "oferta": "si",
+    "color": "Azul",
+    "ventas": 8,
+    "estado": "existencia"
   },
   {
-    "numeroPedido": "003",
-    "productos": [
-      { "nombre": "Nike Free RN 5.0", "cantidad": 3 }
-    ],
-    "totalPago": 209.97,
-    "estatusEnvio": "Entregado"
+    "id": 3,
+    "nombre": "New Balance Fresh Foam X",
+    "categoria": "hombre",
+    "talla": "US 9",
+    "precio": 109.95,
+    "imagen": "https://example.com/fresh_foam_x.jpg",
+    "oferta": "no",
+    "color": "Verde",
+    "ventas": 3,
+    "estado": "existencia"
   }
 ]

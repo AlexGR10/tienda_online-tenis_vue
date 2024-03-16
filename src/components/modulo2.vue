@@ -1,86 +1,67 @@
 <template>
-  <div class="Modulo2">
-    <h2>{{ title }}</h2>
-    <div class="carousel">
-      <button @click="prevSlide" class="carousel-control-prev">&#10094;</button>
-      <div class="carousel-inner">
-        <div v-for="(product, index) in products" :key="index" class="carousel-item" :class="{ active: index === currentSlide }">
-          <modulo3 :product="product"></modulo3>
-        </div>
+  <div>
+    <h2>{{ titulo }}</h2>
+    <div class="carrusel">
+      <div v-for="producto in productos" :key="producto.id">
+        <Modulo3 :producto="producto" />
       </div>
-      <button @click="nextSlide" class="carousel-control-next">&#10095;</button>
     </div>
+    <button @click="anterior" class="btn-navegacion">Anterior</button>
+    <button @click="siguiente" class="btn-navegacion">Siguiente</button>
   </div>
 </template>
 
 <script>
-import Modulo3 from './modulo3.vue';
+import Modulo3 from './modulo3.vue'; // Importa el componente del módulo 3
 
 export default {
-  name: 'Modulo2',
   components: {
-    Modulo3
+    Modulo3,
   },
   props: {
-    title: String,
-    products: Array
+    titulo: String, // Título del carrusel (puede ser "Ofertas" o "Más vendidos")
+    productos: Array, // Array de productos a mostrar en el carrusel
   },
   data() {
     return {
-      currentSlide: 0
+      indiceActual: 0, // Índice del producto actual que se muestra
     };
   },
   methods: {
-    prevSlide() {
-      this.currentSlide = (this.currentSlide - 1 + this.products.length) % this.products.length;
+    anterior() {
+      if (this.indiceActual === 0) {
+        this.indiceActual = this.productos.length - 1;
+      } else {
+        this.indiceActual--;
+      }
     },
-    nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.products.length;
-    }
-  }
-}
+    siguiente() {
+      if (this.indiceActual === this.productos.length - 1) {
+        this.indiceActual = 0;
+      } else {
+        this.indiceActual++;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-.Modulo2 {
-  margin-bottom: 20px;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.carousel-control-prev {
-  left: 0;
-}
-
-.carousel-control-next {
-  right: 0;
-}
-
-.carousel-inner {
+.carrusel {
+  /* Estilos del carrusel */
   display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
-.carousel-item {
-  flex: 0 0 100%;
-  display: none;
+.carrusel > div {
+  /* Estilos de cada producto en el carrusel */
+  margin: 10px;
+  flex: 0 0 auto;
 }
 
-.carousel-item.active {
-  display: block;
+.btn-navegacion {
+  /* Estilos de los botones de navegación */
+  margin: 10px;
 }
 </style>

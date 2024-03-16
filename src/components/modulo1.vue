@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import carritoData from '/src/assets/pedidos.json';
+import carritoData from '/src/assets/carrito.json';
 
 export default {
   name: 'Modulo1',

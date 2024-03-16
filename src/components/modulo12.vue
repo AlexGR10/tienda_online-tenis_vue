@@ -47,7 +47,7 @@ export default {
   methods: {
     async cargarHistorialPedidos() {
       try {
-        const response = await axios.get('/src/assets/carrito.json');
+        const response = await axios.get('/src/assets/pedidos.json');
         this.historialPedidos = response.data;
       } catch (error) {
         console.error('Error al cargar el historial de pedidos', error);
