@@ -1,4 +1,5 @@
 <template>
+  <h2>Carrito de Compras</h2>
     <div>
       <table class="table">
         <thead>

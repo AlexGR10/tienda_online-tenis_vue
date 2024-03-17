@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Carrito de Compras</h2>
     <table class="table table-bordered table-hover">
       <thead class="thead-dark">
         <tr>

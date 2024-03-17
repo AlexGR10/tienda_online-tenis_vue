@@ -9,15 +9,11 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <form @submit.prevent="agregarProducto">
-                  <h3>Agregar Producto</h3>
+                <form @submit.prevent="agregarEditarProducto">
+                  <h3>Agregar/Editar Producto</h3>
                   <div class="form-group">
                     <label for="nombre">Nombre del producto:</label>
                     <input type="text" class="form-control" id="nombre" v-model="nuevoProducto.nombre" />
-                  </div>
-                  <div class="form-group">
-                    <label for="descripcion">Descripción del producto:</label>
-                    <textarea class="form-control" id="descripcion" v-model="nuevoProducto.descripcion"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="precio">Precio del producto:</label>
@@ -48,11 +44,43 @@
                   </div>
                   <div class="form-group">
                     <label for="color">Color del producto:</label>
-                    <input type="text" class="form-control" id="color" v-model="nuevoProducto.color" />
+                    <select class="form-control" id="color" v-model="nuevoProducto.color">
+                      <option value="">Selecciona un color</option>
+                      <option value="Azul">Azul</option>
+                      <option value="Rojo">Rojo</option>
+                      <option value="Verde">Verde</option>
+                      <option value="Negro">Negro</option>
+                      <option value="Blanco">Blanco</option>
+                    </select>
                   </div>
-                  <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                  <div class="form-group">
+                    <label for="categoria">Categoría del producto:</label>
+                    <select class="form-control" id="categoria" v-model="nuevoProducto.categoria">
+                      <option value="">Selecciona una categoria</option>
+                      <option value="Mujer">Mujer</option>
+                      <option value="Hombre">Hombre</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="ventas">Ventas del producto:</label>
+                    <input type="number" class="form-control" id="ventas" v-model="nuevoProducto.ventas" />
+                  </div>
+                  <div class="form-group">
+                    <label for="estado">Estado del producto:</label>
+                    <select class="form-control" id="estado" v-model="nuevoProducto.estado">
+                      <option value="">Selecciona un estado</option>
+                      <option value="Activo">Activo</option>
+                      <option value="Agotado">Agotado</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="descripcion">Descripción del producto:</label>
+                    <textarea class="form-control" id="descripcion" v-model="nuevoProducto.descripcion"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">{{ editIndex === '' ? 'Agregar Producto' : 'Editar Producto' }}</button>
                 </form>
               </div>
+
               <div class="col-md-6">
                 <h3>Lista de Productos</h3>
                 <table class="table table-striped">
@@ -67,17 +95,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="producto in productos" :key="producto.id">
+                    <tr v-for="(producto, index) in productos" :key="index">
                       <td>{{ producto.nombre }}</td>
-                      <td>${{ producto.precio }}</td>
+                      <td>{{ producto.precio }}</td>
                       <td>{{ producto.talla }}</td>
-                      <td>
-                        <span v-if="producto.oferta > 0">{{ producto.oferta }}%</span>
-                      </td>
+                      <td>{{ producto.oferta }}</td>
                       <td>{{ producto.color }}</td>
                       <td>
-                        <button @click="editarProducto(producto)" class="btn btn-sm btn-info">Editar</button>
-                        <button @click="eliminarProducto(producto.id)" class="btn btn-sm btn-danger">Eliminar</button>
+                        <button @click="editarProducto(index)" class="btn btn-sm btn-info">Editar</button>
+                        <button @click="eliminarProducto(index)" class="btn btn-sm btn-danger">Eliminar</button>
                       </td>
                     </tr>
                   </tbody>
@@ -92,7 +118,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import productos from '/src/assets/productos.json';
 
 export default {
@@ -109,39 +134,72 @@ export default {
         oferta: 'no',
         color: '',
         ventas: 0,
-        estado: 'existencia'
+        estado: 'existencia',
+        categoria: ''
       },
-      productoEditado: null
+      editIndex: ''
     };
   },
   methods: {
-    async agregarProducto() {
-      try {
-        // Aquí agregas la lógica para agregar el nuevo producto a la lista de productos
-        // Puedes usar this.nuevoProducto para acceder a los datos del nuevo producto
-        console.log('Producto agregado:', this.nuevoProducto);
-      } catch (error) {
-        console.error('Error al agregar el producto:', error);
+    agregarEditarProducto() {
+      if (this.editIndex === '') {
+        // Agregar nuevo producto
+        this.productos.push({...this.nuevoProducto});
+      } else {
+        // Editar producto existente
+        this.productos[this.editIndex] = {...this.nuevoProducto};
+        this.editIndex = ''; // Limpiar editIndex después de editar
+      }
+      // Limpiar formulario
+      this.limpiarFormulario();
+    },
+    editarProducto(index) {
+      // Rellenar formulario con datos del producto seleccionado
+      this.nuevoProducto = {...this.productos[index]};
+      this.editIndex = index;
+    },
+    eliminarProducto(index) {
+      // Eliminar producto de la lista
+      this.productos.splice(index, 1);
+      // Limpiar formulario si estaba editando ese producto
+      if (index == this.editIndex) {
+        this.limpiarFormulario();
       }
     },
-    editarProducto(producto) {
-      // Aquí puedes implementar la lógica para editar un producto existente
-      // Puedes usar this.productoEditado para almacenar temporalmente el producto seleccionado para editar
-      this.productoEditado = producto;
-      console.log('Editar producto:', producto);
-    },
-    async eliminarProducto(id) {
-      try {
-        // Aquí agregas la lógica para eliminar un producto de la lista de productos
-        console.log('Eliminar producto con ID:', id);
-      } catch (error) {
-        console.error('Error al eliminar el producto:', error);
-      }
+    limpiarFormulario() {
+      // Limpiar formulario
+      this.nuevoProducto = {
+        id: '',
+        nombre: '',
+        descripcion: '',
+        precio: 0,
+        talla: '',
+        imagen: '',
+        oferta: 'no',
+        color: '',
+        ventas: 0,
+        estado: 'existencia',
+        categoria: ''
+      };
     }
   }
 };
 </script>
 
 <style scoped>
-/* Estilos CSS específicos para este componente */
+.productos-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.productos-scroll {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .productos-scroll {
+    max-height: none;
+  }
+}
 </style>

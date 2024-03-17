@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import productos from '/src/assets/productos.json';
 
 export default {
@@ -57,14 +56,15 @@ export default {
     };
   },
   mounted() {
-    // Se carga la información del primer producto al cargar el componente
+    // Se carga la información del producto al cargar el componente
     this.cargarProducto();
   },
   methods: {
     cargarProducto() {
       try {
-        // Se carga el primer producto del array productos
-        this.producto = this.productos[19];
+        // Se carga el producto correspondiente al ID proporcionado
+        const id = this.$route.params.id;
+        this.producto = this.productos.find(producto => producto.id === parseInt(id));
       } catch (error) {
         console.error('Error al cargar el producto', error);
       }

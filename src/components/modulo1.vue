@@ -15,23 +15,32 @@
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <!-- Botones de Categoría -->
           <li class="nav-item">
             <router-link to="/modulo1" class="btn btn-link nav-link">Hombres</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/modulo2" class="btn btn-link nav-link">2</router-link>
+            <router-link to="/modulo4" class="btn btn-link nav-link">4</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/modulo5" class="btn btn-link nav-link">5</router-link>
+            <router-link to="/modulo6" class="btn btn-link nav-link">6</router-link>
+            <router-link to="/modulo7" class="btn btn-link nav-link">7</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/modulo8" class="btn btn-link nav-link">8</router-link>
+            <router-link to="/modulo9" class="btn btn-link nav-link">9</router-link>
+            <router-link to="/modulo10" class="btn btn-link nav-link">10</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/modulo1" class="btn btn-link nav-link">Mujeres</router-link>
           </li>
         </ul>
-        <!-- Barra de Búsqueda -->
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
         </form>
-        <!-- Carrito de Compras -->
         <router-link to="/modulo8" class="btn btn-primary mx-2 bg-dark">Carrito ({{ carrito.length }})</router-link>
-        <!-- Sesión -->
         <router-link to="/modulo5" class="btn btn-primary bg-dark">Iniciar Sesión</router-link>
-        <!-- Perfil de Usuario -->
         <router-link to="/modulo12" class="btn btn-primary mx-2 bg-dark">Perfil</router-link>
       </div>
     </div>
