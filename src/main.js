@@ -23,7 +23,7 @@ const app = createApp(App);
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/modulo8' },
+    { path: '/', redirect: '/modulo2' },
     { path: '/modulo1', component: Modulo1 },
     { path: '/modulo2', component: Modulo2 },
     { path: '/modulo3', component: Modulo3 },

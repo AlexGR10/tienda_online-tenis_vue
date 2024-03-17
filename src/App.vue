@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <modulo1></modulo1>
+    <modulo1></modulo1> <!-- Mueve el componente Modulo1 aquí -->
     <router-view></router-view>
   </div>
 </template>
@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style>
-/* Puedes agregar estilos globales aquí */
+/* Puedes mantener tus estilos aquí */
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top w-100">
     <div class="container justify-content-center">
       <router-link to="/modulo2" class="navbar-brand">Kike</router-link>
       <button
@@ -21,16 +21,6 @@
           <li class="nav-item">
             <router-link to="/modulo2" class="btn btn-link nav-link">2</router-link>
             <router-link to="/modulo4" class="btn btn-link nav-link">4</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/modulo5" class="btn btn-link nav-link">5</router-link>
-            <router-link to="/modulo6" class="btn btn-link nav-link">6</router-link>
-            <router-link to="/modulo7" class="btn btn-link nav-link">7</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/modulo8" class="btn btn-link nav-link">8</router-link>
-            <router-link to="/modulo9" class="btn btn-link nav-link">9</router-link>
-            <router-link to="/modulo10" class="btn btn-link nav-link">10</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/modulo1" class="btn btn-link nav-link">Mujeres</router-link>
@@ -96,10 +86,9 @@ export default {
   border-radius: 0;
 }
 
-/* Estilos para los botones con fondo negro y letras blancas */
 .btn-primary {
   background-color: black;
   color: white;
-  border: none; /* Quita el borde */
+  border: none; 
 }
 </style>
