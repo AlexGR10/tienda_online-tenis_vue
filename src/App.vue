@@ -11,10 +11,16 @@ import modulo1 from './components/modulo1.vue';
 export default {
   components: {
     modulo1,
-  },
+  }
 };
 </script>
 
-<style>
-/* Puedes mantener tus estilos aquí */
+<style scoped>
+
+  div{
+    background-color:gray;
+    padding-top:5%;
+  }
+
 </style>
+

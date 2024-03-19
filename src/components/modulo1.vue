@@ -56,6 +56,7 @@ export default {
 <style scoped>
 .navbar {
   border: none;
+  margin-bottom: 1000px;
 }
 
 .navbar-brand {

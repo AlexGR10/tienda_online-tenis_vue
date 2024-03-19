@@ -1,18 +1,12 @@
 <template>
   <div class="card">
-    <!-- Imagen del Producto -->
-    <img :src="producto.imagen" :alt="producto.nombre" class="card-img-top" />
+    <div class="card-img-container">
+      <img :src="producto.imagen" :alt="producto.nombre" class="card-img" />
+    </div>
     <div class="card-body">
-      <!-- Nombre del Producto -->
-      <h2 class="card-title">{{ producto.nombre}}</h2>
-
-      <!-- Precio del Producto -->
-      <p class="card-text">Precio: ${{ producto.precio }}</p>
-
-      <!-- Talla del Producto -->
-      <p class="card-text">Talla:{{ producto.talla }}</p>
-
-      <!-- Botón para agregar al carrito -->
+      <h2 class="card-title">{{ truncate(producto.nombre, 20) }}</h2>
+      <p class="card-text">${{ producto.precio.toFixed(2) }}</p>
+      <p class="card-text">Talla: {{ producto.talla }}</p>
       <button class="btn btn-primary">
         Agregar al carrito
       </button>
@@ -23,18 +17,54 @@
 <script>
 export default {
   props: {
-    // Propiedades del Producto
     producto: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    truncate(text, length) {
+      if (text.length > length) {
+        return text.substring(0, length) + '...';
+      }
+      return text;
     }
   }
 };
 </script>
 
 <style>
-/* Estilos opcionales para el componente */
 .card {
-  margin: 20px;
+  width: 100%;
+  height: 90%;
+}
+
+/* Estilos para la imagen del producto */
+.card-img-container {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img {
+  /* Asegura que la imagen siempre llene el contenedor */
+  width: 100%;
+  height: auto;
+  /* Centra la imagen verticalmente */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Otros estilos para el cuerpo de la tarjeta */
+.card-body {
+  /* Puedes ajustar estos estilos según tus necesidades */
+}
+
+.card-title,
+.card-text {
+  /* Ajusta el tamaño de fuente para que sea responsive */
+  font-size: 1rem;
 }
 </style>
