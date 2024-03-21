@@ -2,8 +2,8 @@
   <div>
     <!-- Navegación entre pestañas -->
     <div>
-      <button @click="currentTab = 'login'">Iniciar Sesión</button>
-      <button @click="currentTab = 'signup'">Crear Cuenta</button>
+      <button @click="currentTab = 'login'" class="button">Iniciar Sesión</button>
+      <button @click="currentTab = 'signup'" class="button">Crear Cuenta</button>
     </div>
     
     <!-- Formulario de inicio de sesión -->
@@ -18,7 +18,7 @@
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="loginData.password" required>
         </div>
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit" class="button">Iniciar Sesión</button>
       </form>
     </div>
 
@@ -42,7 +42,7 @@
           <label for="confirmPassword">Confirmar Contraseña:</label>
           <input type="password" id="confirmPassword" v-model="signupData.confirmPassword" required>
         </div>
-        <button type="submit">Crear Cuenta</button>
+        <button type="submit" class="button">Crear Cuenta</button>
       </form>
     </div>
   </div>
@@ -114,5 +114,22 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+/* Estilos de los botones */
+.button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #333;
 }
 </style>
