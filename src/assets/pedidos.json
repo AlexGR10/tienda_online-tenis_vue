@@ -20,6 +20,15 @@
   {
     "numeroPedido": "003",
     "productos": [
+      { "nombre": "Nike Air Max 270", "cantidad": 4 },
+      { "nombre": "Nike React Element 55", "cantidad": 1 }
+    ],
+    "totalPago": 549.97,
+    "estatusEnvio": "Cancelado"
+  },
+  {
+    "numeroPedido": "004",
+    "productos": [
       { "nombre": "Nike Free RN 5.0", "cantidad": 3 }
     ],
     "totalPago": 209.97,

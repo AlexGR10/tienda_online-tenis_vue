@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "nombre": "Usuario1",
+      "correo": "usuario1@example.com",
+      "contraseña": "contraseña1",
+      "tipo": "cliente"
+    },
+    {
+      "id": 2,
+      "nombre": "Usuario2",
+      "correo": "usuario2@example.com",
+      "contraseña": "contraseña2",
+      "tipo": "cliente"
+    },
+    {
+      "id": 3,
+      "nombre": "Usuario3",
+      "correo": "usuario3@example.com",
+      "contraseña": "contraseña3",
+      "tipo": "cliente"
+    },
+    {
+      "id": 4,
+      "nombre": "Admin1",
+      "correo": "admin1@example.com",
+      "contraseña": "admincontraseña1",
+      "tipo": "admin"
+    },
+    {
+      "id": 5,
+      "nombre": "Admin2",
+      "correo": "admin2@example.com",
+      "contraseña": "admincontraseña2",
+      "tipo": "admin"
+    }
+  ]
+  

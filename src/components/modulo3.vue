@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <router-link :to="linkToModule5" class="card">
     <div class="card-img-container">
       <img :src="producto.imagen" :alt="producto.nombre" class="card-img" />
     </div>
@@ -8,10 +8,10 @@
       <p class="card-text">${{ producto.precio.toFixed(2) }}</p>
       <p class="card-text">Talla: {{ producto.talla }}</p>
       <button class="btn btn-primary">
-        Agregar al carrito
+        Ver más
       </button>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -20,6 +20,11 @@ export default {
     producto: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    linkToModule5() {
+      return '/modulo5'; // Cambia esto si el enlace al módulo 5 es diferente
     }
   },
   methods: {
@@ -37,6 +42,8 @@ export default {
 .card {
   width: 100%;
   height: 90%;
+  text-decoration: none; /* Quitar subrayado de enlace */
+  color: inherit; /* Mantener color de texto predeterminado */
 }
 
 /* Estilos para la imagen del producto */

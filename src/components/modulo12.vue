@@ -22,9 +22,9 @@
             </ul>
           </td>
           <td>${{ pedido.totalPago.toFixed(2) }}</td>
-          <td>{{ pedido.estatusEnvio }}</td>
+          <td :style="getStatusStyle(pedido.estatusEnvio)" class="rounded-pill p-2">{{ pedido.estatusEnvio }}</td>
           <td>
-            <button @click="cancelarPedido(index)" class="btn btn-danger">Cancelar Pedido</button>
+            <button @click="cancelarPedido(index)" class="btn btn-danger btn-sm rounded-pill">Cancelar Pedido</button>
           </td>
         </tr>
       </tbody>
@@ -57,6 +57,20 @@ export default {
       // Lógica para cancelar el pedido (puedes implementar esta parte según tus necesidades)
       console.log(`Cancelando pedido número: ${this.historialPedidos[index].numeroPedido}`);
     },
+    getStatusStyle(estado) {
+      switch (estado) {
+        case 'En camino':
+          return { backgroundColor: '#ffc107', color: 'white' }; // Fondo amarillo y texto blanco
+        case 'Cancelado':
+          return { backgroundColor: '#dc3545', color: 'white' }; // Fondo rojo y texto blanco
+        case 'En proceso':
+          return { backgroundColor: '#fd7e14', color: 'white' }; // Fondo naranja y texto blanco
+        case 'Entregado':
+          return { backgroundColor: '#28a745', color: 'white' }; // Fondo verde y texto blanco
+        default:
+          return {}; // Si el estado no coincide con ninguno de los anteriores, no se aplica ningún estilo
+      }
+    }
   },
 };
 </script>

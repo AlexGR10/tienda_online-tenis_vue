@@ -20,8 +20,13 @@
           </li>
           <li class="nav-item">
             <router-link to="/modulo2" class="btn btn-link nav-link">2</router-link>
-            <router-link to="/modulo4" class="btn btn-link nav-link">4</router-link>
           </li>
+            <li class="nav-item">
+              <router-link to="/modulo6" class="btn btn-link nav-link">6</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/modulo10" class="btn btn-link nav-link">10</router-link>
+            </li>
           <li class="nav-item">
             <router-link to="/modulo1" class="btn btn-link nav-link">Mujeres</router-link>
           </li>
@@ -30,8 +35,8 @@
           <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
         </form>
         <router-link to="/modulo8" class="btn btn-primary mx-2 bg-dark">Carrito ({{ carrito.length }})</router-link>
-        <router-link to="/modulo5" class="btn btn-primary bg-dark">Iniciar Sesión</router-link>
-        <router-link to="/modulo12" class="btn btn-primary mx-2 bg-dark">Perfil</router-link>
+        <router-link to="/modulo7" class="btn btn-primary bg-dark">Iniciar Sesión</router-link>
+        <router-link to="/modulo11" class="btn btn-primary mx-2 bg-dark">Perfil</router-link>
       </div>
     </div>
   </nav>
@@ -54,9 +59,13 @@ export default {
 </script>
 
 <style scoped>
+.container-main {
+  margin-top: 70px; /* Altura de la barra de navegación */
+  padding-bottom: 20px; /* Margen inferior para el contenido */
+}
+
 .navbar {
   border: none;
-  margin-bottom: 1000px;
 }
 
 .navbar-brand {

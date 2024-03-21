@@ -12,6 +12,9 @@
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.21.2",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "stripe": "^14.21.0",
     "swiper": "^11.0.7",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
