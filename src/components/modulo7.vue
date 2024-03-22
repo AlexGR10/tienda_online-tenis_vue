@@ -1,11 +1,5 @@
 <template>
   <div>
-    <!-- Navegación entre pestañas -->
-    <div>
-      <button @click="currentTab = 'login'" class="button">Iniciar Sesión</button>
-      <button @click="currentTab = 'signup'" class="button">Crear Cuenta</button>
-    </div>
-    
     <!-- Formulario de inicio de sesión -->
     <div v-if="currentTab === 'login'">
       <h2>Iniciar Sesión</h2>
@@ -18,7 +12,10 @@
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="loginData.password" required>
         </div>
-        <button type="submit" class="button">Iniciar Sesión</button>
+        <div class="tab">
+          <button type="submit" class="button">Iniciar Sesión</button>
+          <button @click="currentTab = 'signup'" class="button" :class="tab">Crear Cuenta</button>
+        </div>
       </form>
     </div>
 
@@ -42,7 +39,10 @@
           <label for="confirmPassword">Confirmar Contraseña:</label>
           <input type="password" id="confirmPassword" v-model="signupData.confirmPassword" required>
         </div>
-        <button type="submit" class="button">Crear Cuenta</button>
+        <div class="tab">
+          <button @click="currentTab = 'login'" class="button">Iniciar Sesión</button>
+          <button type="submit" class="button">Crear Cuenta</button>
+        </div>
       </form>
     </div>
   </div>
@@ -122,11 +122,20 @@ input[type="submit"]:hover {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 10px;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
   transition: background-color 0.3s ease;
+}
+
+.tab{
+  display: flex;
+}
+
+.tab button {
+  flex: 1;
+  margin-right: 10px;
 }
 
 .button:hover {
