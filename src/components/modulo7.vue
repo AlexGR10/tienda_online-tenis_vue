@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <!-- Formulario de inicio de sesión -->
     <div v-if="currentTab === 'login'">
       <h2>Iniciar Sesión</h2>
@@ -78,7 +78,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+.container{
+  margin-top: 5%;
+  height: auto;
+}
+
 form {
   width: 300px;
   margin: 0 auto;

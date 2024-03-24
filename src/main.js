@@ -18,6 +18,7 @@ import Modulo9 from './components/modulo9.vue';
 import Modulo10 from './components/modulo10.vue';
 import Modulo11 from './components/modulo11.vue';
 import Modulo12 from './components/modulo12.vue';
+import vistaFiltro from './components/vistaFiltro.vue';
 
 const app = createApp(App);
 
@@ -38,8 +39,10 @@ const router = createRouter({
     { path: '/modulo10', component: Modulo10 },
     { path: '/modulo11', component: Modulo11 },
     { path: '/modulo12', component: Modulo12 },
+    { path: '/vistaFiltro/:categoria', component: vistaFiltro, props: true }, // Añade la definición de la ruta con un parámetro de ruta
   ],
 });
+
 
 app.use(router);
 

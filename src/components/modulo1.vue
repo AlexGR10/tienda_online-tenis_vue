@@ -16,19 +16,10 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link to="/modulo1" class="btn btn-link nav-link">Hombres</router-link>
+            <router-link to="/vistaFiltro/hombre" class="btn btn-link nav-link">Hombres</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/modulo2" class="btn btn-link nav-link">2</router-link>
-          </li>
-            <li class="nav-item">
-              <router-link to="/modulo6" class="btn btn-link nav-link">6</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/modulo10" class="btn btn-link nav-link">10</router-link>
-            </li>
-          <li class="nav-item">
-            <router-link to="/modulo1" class="btn btn-link nav-link">Mujeres</router-link>
+            <router-link to="/vistaFiltro/mujer" class="btn btn-link nav-link">Mujeres</router-link>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -59,6 +50,11 @@ export default {
 </script>
 
 <style scoped>
+.navbar-dark {
+  background-color: rgb(0, 0, 0) !important; /* Cambia el color de fondo a rojo */
+  background-image: none !important; /* Elimina el gradiente de fondo */
+}
+
 .container-main {
   margin-top: 70px; /* Altura de la barra de navegación */
   padding-bottom: 20px; /* Margen inferior para el contenido */

@@ -1,5 +1,6 @@
 <template>
-  <h2>Carrito de Compras</h2>
+  <div class="container">
+    <h2>Carrito de Compras</h2>
     <div>
       <table class="table">
         <thead>
@@ -28,6 +29,7 @@
         <button class="btn btn-primary mt-3">Proceder a Pagar</button>
       </router-link>
     </div>
+  </div>
   </template>
   
   <script>
@@ -68,4 +70,7 @@
   </script>
   
 <style scoped>
+.container{
+  margin-top: 5%;
+}
 </style>

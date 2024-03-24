@@ -17,6 +17,7 @@
             <label for="contrasena" class="form-label">Contraseña:</label>
             <input type="password" v-model="contrasena" id="contrasena" class="form-control" required>
           </div>
+          <router-link to="/modulo6" class="btn btn-secondary">Administrador</router-link>
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
       </div>

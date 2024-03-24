@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="linkToModule5" class="card">
+  <router-link class="card" to="/modulo5">
     <div class="card-img-container">
       <img :src="producto.imagen" :alt="producto.nombre" class="card-img" />
     </div>
@@ -20,11 +20,6 @@ export default {
     producto: {
       type: Object,
       required: true
-    }
-  },
-  computed: {
-    linkToModule5() {
-      return '/modulo5'; // Cambia esto si el enlace al módulo 5 es diferente
     }
   },
   methods: {

@@ -1,15 +1,3 @@
-#app {
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  min-height: 100vh;
-  width: 100%;
-  background-color: #d6d0d0; /* Fondo gris */
-  text-align: center; /* Centrar el texto */
-  position: relative;
-  scrollbar-width: none;
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

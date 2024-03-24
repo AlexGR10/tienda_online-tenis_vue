@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <modulo1></modulo1>
-    <div class="container-main">
+
+    <div class="navbar">
+      <modulo1></modulo1>
+    </div>
+
+    <div class="rutas">
       <router-view></router-view>
     </div>
+
   </div>
 </template>
 
@@ -19,10 +24,26 @@ export default {
 
 <style scoped>
 
-  div{
-    background-color:rgb(255, 255, 255);
-    width: 100%;
-  }
+#app {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #d6d0d0; /* Fondo gris */
+  text-align: center; /* Centrar el texto */
+  position: relative;
+  scrollbar-width: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar{
+  height: 15%;
+}
+
+.rutas {
+  margin-top: 5%;
+  width: 85%;
+  height: 80%;
+  background-color: rgb(255, 255, 255);
+}
 
 </style>
-
