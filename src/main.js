@@ -31,7 +31,7 @@ const router = createRouter({
     { path: '/modulo2', component: Modulo2 },
     { path: '/modulo3', component: Modulo3 },
     { path: '/modulo4', component: Modulo4 },
-    { path: '/modulo5', component: Modulo5 },
+    { path: '/modulo5/:id', component: Modulo5, props: true }, // Ruta con parámetro 'id'
     { path: '/modulo6', component: Modulo6 },
     { path: '/modulo7', component: Modulo7 },
     { path: '/modulo8', component: Modulo8 },
@@ -42,7 +42,6 @@ const router = createRouter({
     { path: '/vistaFiltro/:categoria', component: vistaFiltro, props: true }, // Añade la definición de la ruta con un parámetro de ruta
   ],
 });
-
 
 app.use(router);
 

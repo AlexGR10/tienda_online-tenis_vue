@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   data() {
     return {
@@ -45,13 +43,11 @@ export default {
     this.cargarHistorialPedidos();
   },
   methods: {
-    async cargarHistorialPedidos() {
-      try {
-        const response = await axios.get('/src/assets/pedidos.json');
-        this.historialPedidos = response.data;
-      } catch (error) {
-        console.error('Error al cargar el historial de pedidos', error);
-      }
+    cargarHistorialPedidos() {
+      // Obtener el historial de pedidos del localStorage
+      const historialPedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+      // Asignarlos a la variable de datos
+      this.historialPedidos = historialPedidos;
     },
     cancelarPedido(index) {
       // Lógica para cancelar el pedido (puedes implementar esta parte según tus necesidades)

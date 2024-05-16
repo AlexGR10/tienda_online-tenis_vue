@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import carritoData from '/src/assets/carrito.json';
-
 export default {
   name: 'Modulo1',
   data() {
@@ -44,7 +42,8 @@ export default {
     };
   },
   created() {
-    this.carrito = carritoData;
+    // Obtener el carrito del localStorage
+    this.carrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
   }
 };
 </script>

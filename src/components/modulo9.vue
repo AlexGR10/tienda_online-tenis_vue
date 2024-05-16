@@ -1,7 +1,8 @@
 <template>
   <div>
     <table class="table table-bordered table-hover">
-      <thead class="thead-dark">
+      <!-- Encabezados de la tabla -->
+      <thead>
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Categoría</th>
@@ -12,7 +13,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(producto, index) in productosEnCarrito" :key="index">
+        <!-- Filas de la tabla para productos de localStorage -->
+        <tr v-for="(producto, index) in productosEnCarritoLocal" :key="'local-' + index">
           <td>{{ producto.nombre }}</td>
           <td>{{ producto.categoria }}</td>
           <td>{{ producto.talla }}</td>
@@ -28,28 +30,28 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   data() {
     return {
-      productosEnCarrito: [], // Aquí se almacenarán los productos del carrito de compras
+      productosEnCarritoLocal: [], // Almacena productos del almacenamiento local
     };
   },
   mounted() {
-    this.cargarProductosEnCarrito();
+    // Cargar los productos del carrito del almacenamiento local cada vez que se monte el componente
+    this.cargarProductosEnCarritoLocal();
   },
   methods: {
-    async cargarProductosEnCarrito() {
-      try {
-        const response = await axios.get('/src/assets/carrito.json');
-        this.productosEnCarrito = response.data;
-      } catch (error) {
-        console.error('Error al cargar los productos del carrito de compras', error);
-      }
+    cargarProductosEnCarritoLocal() {
+      // Recuperar los productos del carrito del almacenamiento local
+      const productosEnCarritoLocal = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+      // Asignarlos a la variable de datos
+      this.productosEnCarritoLocal = productosEnCarritoLocal;
     },
     eliminarProducto(index) {
-      this.productosEnCarrito.splice(index, 1);
+      // Eliminar producto del arreglo productosEnCarritoLocal
+      this.productosEnCarritoLocal.splice(index, 1);
+      // Actualizar el almacenamiento local
+      localStorage.setItem('productosEnCarrito', JSON.stringify(this.productosEnCarritoLocal));
     },
   },
 };

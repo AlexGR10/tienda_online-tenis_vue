@@ -25,9 +25,7 @@
                   </ul>
                 </div>
                 <!-- Cambiamos el botón por un enlace a modulo8 -->
-                <router-link class="btn btn-primary mt-3" to="/modulo8">
-                  Ir al carrito
-                </router-link>
+                <button @click="agregarAlCarrito(producto)" class="btn btn-primary">Agregar al carrito</button>
                 <hr />
                 <h3>Descripción del Producto</h3>
                 <p class="card-text">{{ producto.descripcion }}</p>
@@ -50,15 +48,27 @@ export default {
     };
   },
   created() {
-    // Buscar el producto con ID 1
-    this.producto = productos.find(producto => producto.id === 1);
+    // Obtener el ID del producto de los parámetros de la URL
+    const id = parseInt(this.$route.params.id);
+
+    // Buscar el producto con el ID proporcionado en los parámetros de la URL
+    this.producto = productos.find(producto => producto.id === id);
+  },
+  methods: {
+    agregarAlCarrito(producto) {
+      // Obtener los productos del carrito del almacenamiento local
+      let productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+      // Agregar el producto al carrito
+      productosEnCarrito.push(producto);
+      // Guardar los productos actualizados en el almacenamiento local
+      localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
+    }
   }
 };
 </script>
 
 <style scoped>
-
-.container{
+.container {
   margin-top: 5%;
 }
 

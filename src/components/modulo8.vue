@@ -30,47 +30,48 @@
       </router-link>
     </div>
   </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        total: 0,
-        productosEnCarrito: [],
-      };
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      total: 0,
+      productosEnCarrito: [],
+    };
+  },
+  mounted() {
+    this.cargarProductosDesdeLocalStorage();
+  },
+  methods: {
+    cargarProductosDesdeLocalStorage() {
+      // Recuperar los productos del carrito del almacenamiento local
+      const productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+      // Asignarlos a la variable de datos
+      this.productosEnCarrito = productosEnCarrito;
+      // Actualizar el total
+      this.actualizarTotal();
     },
-    mounted() {
-      this.cargarProductos();
+    eliminarProducto(index) {
+      // Eliminar producto del arreglo productosEnCarrito
+      this.productosEnCarrito.splice(index, 1);
+      // Actualizar el almacenamiento local
+      localStorage.setItem('productosEnCarrito', JSON.stringify(this.productosEnCarrito));
+      // Actualizar el total
+      this.actualizarTotal();
     },
-    methods: {
-      async cargarProductos() {
-        try {
-          const response = await axios.get('/src/assets/carrito.json');
-          this.productosEnCarrito = response.data;
-          this.actualizarTotal();
-        } catch (error) {
-          console.error('Error al cargar los productos', error);
-        }
-      },
-      eliminarProducto(index) {
-        this.productosEnCarrito.splice(index, 1);
-        this.actualizarTotal();
-      },
-      actualizarTotal() {
-        this.total = this.calcularTotal(this.productosEnCarrito);
-      },
-      calcularTotal(productos) {
-        return productos.reduce((total, producto) => total + producto.precio, 0);
-      },
+    actualizarTotal() {
+      this.total = this.calcularTotal(this.productosEnCarrito);
     },
-  };
-  </script>
-  
+    calcularTotal(productos) {
+      return productos.reduce((total, producto) => total + producto.precio, 0);
+    },
+  },
+};
+</script>
+
 <style scoped>
-.container{
+.container {
   margin-top: 5%;
 }
 </style>

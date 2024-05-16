@@ -1,5 +1,5 @@
 <template>
-  <router-link class="card" to="/modulo5">
+  <router-link class="card" :to="'/modulo5/' + producto.id">
     <div class="card-img-container">
       <img :src="producto.imagen" :alt="producto.nombre" class="card-img" />
     </div>
